@@ -11,6 +11,7 @@ try {
     opts = parseArgs({
         options: {
             exit:    { type: 'string',  short: 'e', default: '0' },   // Set exit
+            signal:  { type: 'string',  short: 's', default: ''  },   // Exit with signal
             verbose: { type: 'boolean', short: 'v', default: false }, // Display some output
         }
     })
@@ -26,8 +27,25 @@ if (isNaN(code)) {
     process.exit(EXIT_BAD_ARGS)
 }
 
-// Exit with specified exit code
-if (opts.values.verbose) {
-    console.log(`Exiting with status ${code}`)
+if (opts.values.signal.length > 0) {
+
+    // Hit ourselves with a signal
+    if (opts.values.verbose) {
+        console.log(`Signalling ourselves with ${opts.values.signal}`)
+    }
+
+    try {
+        process.kill(process.pid, opts.values.signal)
+    } catch (err) {
+        console.log(JSON.stringify(err))
+        process.exit(EXIT_BAD_ARGS)
+    }
+
+} else {
+
+    // Exit with specified exit code
+    if (opts.values.verbose) {
+        console.log(`Exiting with status ${code}`)
+    }
+    process.exit(code)
 }
-process.exit(code)
