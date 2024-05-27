@@ -1,5 +1,5 @@
 {
-  "name": "quitter",
+  "name": "@tpot/quitter",
   "version": "1.0.0",
   "description": "A program that quits",
   "bin": {
