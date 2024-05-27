@@ -1,0 +1,13 @@
+{
+  "name": "quitter",
+  "version": "1.0.0",
+  "description": "A program that quits",
+  "bin": {
+    "quitter": "quitter.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tim Potter <tpot@frungy.org>",
+  "license": "BSD-2-Clause"
+}
