@@ -6,7 +6,7 @@
     "quitter": "quitter.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "Tim Potter <tpot@frungy.org>",
   "license": "BSD-2-Clause",
